@@ -1,5 +1,6 @@
 package cmu.practicum.app;
 
+import java.io.PrintWriter;
 import java.net.UnknownHostException;
 import java.util.Iterator;
 import java.util.List;
@@ -17,10 +18,30 @@ import cmu.practicum.JgroupsRpc;
 */
 public class VehicleDistance extends CommonAPI {
 	
-	public int distance;
-		
-	public String vehiclename;
 
+	int distance;
+		
+	 String vehiclename;
+
+	/**
+	 * @return distance  distance of the vehicle
+	 */
+	public int getDistance() {
+		return distance;
+	}
+
+	
+	/**
+	 * @return vehiclename  name of the vehicle
+	 */
+	public String getVehiclename() {
+		return vehiclename;
+	}
+	
+	
+	/**
+	 * Populates the vehiclename and distance in the vehicle where this is executed
+	 */
 	public void execute() {
 		Random rdn = new Random();
 		this.distance=rdn.nextInt(6);
@@ -32,6 +53,8 @@ public class VehicleDistance extends CommonAPI {
 		}
 	
 	}
+	
+	
 
 
 }
