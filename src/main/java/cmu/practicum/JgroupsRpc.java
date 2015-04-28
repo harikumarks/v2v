@@ -41,6 +41,7 @@ public class JgroupsRpc {
    */
     public void start() throws Exception {
         channel=new JChannel(props);
+        channel.setDiscardOwnMessages(true);
         disp=new RpcDispatcher(channel, this);
         channel.connect("V2VCloud");
 

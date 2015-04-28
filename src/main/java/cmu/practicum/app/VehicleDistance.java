@@ -21,7 +21,19 @@ public class VehicleDistance extends CommonAPI {
 
 	int distance;
 		
-	 String vehiclename;
+	boolean hasAccident=false;
+	
+	 public boolean isHasAccident() {
+		return hasAccident;
+	}
+
+
+	public void setHasAccident(boolean hasAccident) {
+		this.hasAccident = hasAccident;
+	}
+
+
+	String vehiclename;
 
 	/**
 	 * @return distance  distance of the vehicle
@@ -43,7 +55,14 @@ public class VehicleDistance extends CommonAPI {
 	 * Populates the vehiclename and distance in the vehicle where this is executed
 	 */
 	public void execute() {
+		/*first check if it has information to locally execute*/
+		if(this.hasAccident){
+			System.out.println(this.vehiclename +" had an accident");
+		}
+		
 		Random rdn = new Random();
+
+			
 		this.distance=rdn.nextInt(6);
 		try {
 			this.vehiclename=java.net.InetAddress.getLocalHost().getHostName();
@@ -52,6 +71,11 @@ public class VehicleDistance extends CommonAPI {
 			e.printStackTrace();
 		}
 	
+	}
+
+
+	public void setVehiclename(String vehiclename) {
+		this.vehiclename = vehiclename;
 	}
 	
 	
